@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use chrono::{DateTime, Utc};
 
+#[derive(Clone)]
 pub struct RedisClient {
     pub client: Client,
 }

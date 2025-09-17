@@ -3,6 +3,7 @@ use tokio_postgres::NoTls;
 use std::env;
 use url;
 
+#[derive(Clone)]
 pub struct Database {
     pub pool: Pool,
 }

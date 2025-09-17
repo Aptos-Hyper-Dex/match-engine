@@ -53,7 +53,9 @@ check: test fmt-check lint
 # Run the project
 .PHONY: run
 run:
-	cargo run
+	cargo run --bin basic_orderbook --manifest-path examples/Cargo.toml &
+	@echo "Orderbook process started in background with PID: $$!"
+	@echo "To stop it, use: kill $$!"
 
 .PHONY: fix
 fix:
@@ -88,7 +90,7 @@ coverage:
 coverage-html:
 	export LOGLEVEL=WARN
 	cargo install cargo-tarpaulin
-	mkdir -p coverage
+	mkdir -p coveragemake release  
 	cargo tarpaulin --exclude-files 'benches/**' --verbose --all-features --workspace --timeout 120 --out Html
 
 .PHONY: open-coverage

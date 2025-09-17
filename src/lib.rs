@@ -156,5 +156,8 @@ pub mod orderbook;
 
 mod utils;
 
+// Expose API module for the binary to consume
+pub mod api;
+
 pub use orderbook::{OrderBook, OrderBookError, OrderBookSnapshot};
 pub use utils::current_time_millis;
